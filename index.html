@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Metadata para PWA -->
+    <!-- Modificar barra de estado android -->
+    <meta name="theme-color" content="#42b883">
+    <!-- SEO -->
+    <!-- Optimizado para moviles -->
+    <meta name="MobileOptimized" content="width">
+    <!-- Amigable para moviles -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- Modificar barra de estado ios -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>Vue</title>
+
+    <!-- Icons -->
+    <link rel="shortcut icon" href="/static/img/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/static/img/favicon.png">
+    <link rel="apple-touch-startup-image" href="/static/img/favicon.png">
+
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Normalize.css -->
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <!-- CDN Vue.js -->
+    <script src="https://unpkg.com/vue@3"></script>
+
+</head>
+<body>
+    <div id="app" class="app">
+        <h1 :class="user.classValue">{{ user.title }}</h1>
+
+        <h2 class="count">{{ count }}</h2>
+        <div class="buttons">
+            <button v-on:click="modCount('dec', 1)">-1</button>
+            <button @click="modCount('', 1)">+1</button>
+        </div>
+
+        <h1 v-if="user.age < 0 || user.age > 110" class="error">Edad fuera de rango</h1>
+        <h1 v-else-if="user.age >= 18" class="good">Eres mayor</h1>
+        <h1 v-else class="error">Eres menor</h1>
+
+        <ul>
+            <li v-for="(language, id) in user.languages" :key="id">{{ id }} - {{ language }}</li>
+        </ul>
+
+        <hr/>
+
+        <h1>{{ user.title }}</h1>
+        <h2>{{ user.name }}</h2>
+        <h2>{{ user.age >= 18 ? "Puedes pasar" : "No puedes pasar" }}</h2>
+        <h2>{{ user.languages }}</h2>
+
+        <hr/>
+
+        <a v-bind:href="user.url" target="_blank">Udemy</a>
+
+        <hr/>
+
+        <img :src="user.picture" width="150">
+    </div>
+
+    <script src="/load.js"></script>
+
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/mount.js"></script>
+</body>
+</html>

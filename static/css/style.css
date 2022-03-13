@@ -1,0 +1,37 @@
+html, body{
+    background-color: #35495e;
+    color: #eee;
+}
+
+.app{
+    display: block;
+    text-align: center;
+}
+
+.good{
+    color: #42b883;
+}
+
+.error{
+    color: #ef7177;
+}
+
+.count{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+button{
+    background-color: #42b883;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+    font-weight: bold;
+    color: snow;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: #379c6f;
+}
